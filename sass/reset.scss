@@ -1,0 +1,97 @@
+* , *::before , *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    vertical-align: baseline;
+
+    border: 0;
+  }
+
+  *::before , *::after{
+    display: block;
+  }
+
+    /* Evitamos problemas con las imagenes */
+    img , picture , video , iframe , figure{
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        /* (Opcional) */ object-fit: cover;        
+        /* (Opcional) */ object-position: center center;
+      }
+      
+      span img {
+        display: inline;
+      }
+    
+      /* Reseteamos los enlaces para funcionar como cajas... */
+      a {
+        display: block;
+    
+        color:inherit;
+        font-size:inherit;
+        text-decoration: none;
+      }
+      
+      /* Desactivamos estilos por defecto de las principales etiquetas de texto */
+      h1 , h2 , h3 , h4 , h5 , h6 , p ,span , a , strong , blockquote , i , b , u , em {
+        color: inherit;
+        font-weight: inherit;
+        font-size: inherit;
+        font-style: inherit;
+        text-decoration: none;
+        overflow-wrap: break-word;
+      }
+    
+      /* ... excepto los que se encuentran en párrafos */
+      p a {
+        display: inline;
+      }
+      
+      /* Quitamos los puntos de los <li> */
+      li {
+        list-style-type: none;
+      }
+      
+     
+      /* Evitamos problemas con los pseudoelementos de quotes */
+      blockquote::before, blockquote::after, q::before, q::after {
+          content: '';
+          content: none;
+      }
+      
+      /* Nivelamos problemas de tipografías y colocación de formularios */
+    form , input, textarea, select , button , label{
+        display: block;
+    
+        color:inherit;
+        font-size: inherit;
+        font-family: inherit;
+        hyphens: auto;
+    
+        background-color: transparent;
+        /* (Opcional) */ appearance: none;
+    }
+    
+    /* Reseteamos las tablas */
+    table , tr , td {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    
+    /* Evitamos problemas con los SVG */
+    svg{
+        display: block;
+        width: 100%;
+    
+        fill: currentcolor;
+    }
+    
+    body {
+        min-height  : 100vh;
+    
+        line-height: 1.5;
+    
+        // -webkit-font-smoothing: antialiased;-webkit-font-smoothing
+      }
