@@ -1,0 +1,233 @@
+@charset "UTF-8";
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  border: 0;
+}
+
+*::before, *::after {
+  display: block;
+}
+
+/* Evitamos problemas con las imagenes */
+img, picture, video, iframe, figure {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  /* (Opcional) */
+  object-fit: cover;
+  /* (Opcional) */
+  object-position: center center;
+}
+
+span img {
+  display: inline;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  color: inherit;
+  font-size: inherit;
+  text-decoration: none;
+}
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  overflow-wrap: break-word;
+}
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote::before, blockquote::after, q::before, q::after {
+  content: "";
+  content: none;
+}
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form, input, textarea, select, button, label {
+  display: block;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  hyphens: auto;
+  background-color: transparent;
+  /* (Opcional) */
+  appearance: none;
+}
+
+/* Reseteamos las tablas */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  display: block;
+  width: 100%;
+  fill: currentcolor;
+}
+
+html {
+  max-width: 100%;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+:root {
+  --clr-primary-400: 263 55% 52%;
+  --clr-secondary-400: 217 19% 35%;
+  --clr-secondary-500: 219 29% 14%;
+  --clr-neutral-100: 0 0% 100%;
+  --clr-neutral-200: 210 46% 95%;
+  --clr-neutral-300: 0 0% 81%;
+  --ff-primary: "Barlow Semi Condensed", sans-serif;
+  --fw-400: 500;
+  --fw-700: 600;
+  --fs-300: 0.6875rem;
+  --fs-400: 0.8125rem;
+  --fs-500: 1.25rem;
+}
+
+body {
+  font-family: var(--ff-primary);
+}
+
+.bg-primary-400 {
+  background: hsl(var(--clr-primary-400));
+}
+
+.bg-secondary-400 {
+  background: hsl(var(--clr-secondary-400));
+}
+
+.bg-secondary-500 {
+  background: hsl(var(--clr-secondary-500));
+}
+
+.bg-neutral-100 {
+  background: hsl(var(--clr-neutral-100));
+}
+
+.text-neutral-100 {
+  color: hsl(var(--clr-neutral-100));
+}
+
+.text-secondary-400 {
+  color: hsl(var(--clr-secondary-400));
+}
+
+.attribution {
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+.main {
+  width: 100%;
+  max-width: 1120px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1rem;
+}
+
+.testimonials {
+  display: grid;
+  gap: 1rem;
+}
+@media screen and (width >= 1200px) {
+  .testimonials {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .testimonials > :nth-child(1) {
+    grid-column: span 2;
+  }
+  .testimonials > :nth-child(4) {
+    grid-column: span 2;
+  }
+  .testimonials > :nth-child(5) {
+    grid-row: 1/3;
+    grid-column: 4/5;
+  }
+}
+
+.cardTestimonial {
+  position: relative;
+  box-shadow: 2.5rem 3.75rem 3rem -3rem hsl(var(--clr-secondary-400)/0.25);
+  padding: 1rem 1.5rem 1.5rem;
+  border-radius: 0.5rem;
+}
+.cardTestimonial > :is(:first-child, * + *) {
+  margin-bottom: 1.5rem;
+}
+.cardTestimonial :last-child {
+  margin-bottom: 0;
+}
+.cardTestimonial__header {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+}
+.cardTestimonial__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.cardTestimonial__authorName {
+  display: block;
+  font-size: var(--fs-400);
+  font-weight: var(--fw-400);
+  line-height: 1;
+}
+.cardTestimonial__authorGrade {
+  font-size: var(--fs-300);
+  opacity: 0.5;
+}
+.cardTestimonial__title {
+  position: relative;
+  font-size: var(--fs-500);
+  line-height: 1.2;
+}
+.cardTestimonial__testimony {
+  position: relative;
+  opacity: 0.7;
+}
+.cardTestimonial:first-child::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/bg-pattern-quotation.svg");
+  background-repeat: no-repeat;
+  background-position: top right 10%;
+  content: "";
+}
+
+/*# sourceMappingURL=index.css.map */
